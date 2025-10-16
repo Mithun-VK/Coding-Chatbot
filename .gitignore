@@ -1,0 +1,178 @@
+# ===================================
+# Python Backend
+# ===================================
+
+# Virtual Environment
+backend/venv/
+backend/env/
+backend/ENV/
+backend/.venv/
+
+# Python cache
+backend/__pycache__/
+backend/**/__pycache__/
+backend/*.py[cod]
+backend/*$py.class
+backend/*.so
+
+# Flask
+backend/instance/
+backend/.webassets-cache
+
+# Environment variables
+backend/.env
+backend/.env.local
+backend/.env.*.local
+
+# Logs
+backend/*.log
+backend/app.log
+backend/logs/
+
+# Unit test / coverage
+backend/.pytest_cache/
+backend/.coverage
+backend/htmlcov/
+backend/.tox/
+backend/.nox/
+
+# Distribution / packaging
+backend/build/
+backend/develop-eggs/
+backend/dist/
+backend/downloads/
+backend/eggs/
+backend/.eggs/
+backend/lib/
+backend/lib64/
+backend/parts/
+backend/sdist/
+backend/var/
+backend/wheels/
+backend/*.egg-info/
+backend/.installed.cfg
+backend/*.egg
+
+
+# ===================================
+# React Frontend
+# ===================================
+
+# Dependencies
+frontend/node_modules/
+frontend/.pnp
+frontend/.pnp.js
+
+# Testing
+frontend/coverage/
+
+# Production build
+frontend/build/
+frontend/dist/
+
+# Environment variables
+frontend/.env
+frontend/.env.local
+frontend/.env.development.local
+frontend/.env.test.local
+frontend/.env.production.local
+
+# Logs
+frontend/npm-debug.log*
+frontend/yarn-debug.log*
+frontend/yarn-error.log*
+
+# Misc
+frontend/.DS_Store
+
+
+# ===================================
+# IDEs and Editors
+# ===================================
+
+# VSCode
+.vscode/
+!.vscode/extensions.json
+!.vscode/settings.json
+.history/
+
+# PyCharm
+.idea/
+*.iws
+*.iml
+*.ipr
+
+# Visual Studio
+.vs/
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Vim
+*.swp
+*.swo
+*~
+
+
+# ===================================
+# Operating System Files
+# ===================================
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+*.stackdump
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux
+.Trash-*
+.nfs*
+
+
+# ===================================
+# Git and GitHub
+# ===================================
+
+*.orig
+*.rej
+
+
+# ===================================
+# Project Specific
+# ===================================
+
+# Sensitive data
+*.key
+*.pem
+*.cer
+secrets/
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+
+# Temporary files
+*.tmp
+*.temp
+temp/
+tmp/
+
+# Compressed files (if not needed in repo)
+*.zip
+*.tar.gz
+*.rar
+
+# Documentation builds
+docs/_build/
+site/
