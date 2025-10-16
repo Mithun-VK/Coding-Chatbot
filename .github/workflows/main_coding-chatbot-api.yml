@@ -2,49 +2,34 @@ name: Deploy Backend to Azure
 
 on:
   push:
-    branches: [main]
+    branches:
+      - main
   workflow_dispatch:
 
-env:
-  AZURE_WEBAPP_NAME: coding-chatbot-api
-  PYTHON_VERSION: '3.11'
-  WORKING_DIRECTORY: './backend'
-
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: ${{ env.PYTHON_VERSION }}
-      
-      - name: Install dependencies
-        working-directory: ${{ env.WORKING_DIRECTORY }}
-        run: |
-          python -m pip install --upgrade pip
-          pip install -r requirements.txt
-      
-      - name: Upload artifact
-        uses: actions/upload-artifact@v3
-        with:
-          name: python-app
-          path: ${{ env.WORKING_DIRECTORY }}
-
   deploy:
     runs-on: ubuntu-latest
-    needs: build
+    
     steps:
-      - name: Download artifact
-        uses: actions/download-artifact@v3
-        with:
-          name: python-app
-          path: .
-      
-      - name: Deploy to Azure
-        uses: azure/webapps-deploy@v2
-        with:
-          app-name: ${{ env.AZURE_WEBAPP_NAME }}
-          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
+    - name: 'Checkout GitHub Action'
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+
+    - name: Install dependencies
+      run: |
+        cd backend
+        python -m venv venv
+        source venv/bin/activate
+        pip install --upgrade pip
+        pip install -r requirements.txt
+    
+    - name: 'Deploy to Azure Web App'
+      uses: azure/webapps-deploy@v2
+      with:
+        app-name: 'coding-chatbot-api'
+        publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
+        package: ./backend
