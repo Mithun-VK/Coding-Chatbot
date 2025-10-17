@@ -115,10 +115,13 @@ export async function getAvailableModels() {
   }
 }
 
-export default {
+// Assign to variable before exporting
+const api = {
   generateCode,
   chatWithBot,
   explainCode,
   improveCode,
   getAvailableModels,
 };
+
+export default api;
